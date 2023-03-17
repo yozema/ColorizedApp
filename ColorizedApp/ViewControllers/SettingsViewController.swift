@@ -7,8 +7,9 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet var colorView: UIView!
     
     @IBOutlet var redLabel: UILabel!
@@ -20,9 +21,9 @@ final class ViewController: UIViewController {
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setColor()
         setValue(for: redLabel, greenLabel, blueLabel)
     }
@@ -30,21 +31,25 @@ final class ViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         colorView.layer.cornerRadius = colorView.frame.height / 8
     }
-
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+
+    // MARK: - IBActions
     @IBAction func sliderAction(_ sender: UISlider) {
         setColor()
-        
         switch sender {
         case redSlider:
-            redLabel.text = string(from: sender)
+            setValue(for: redLabel)
         case greenSlider:
-            greenLabel.text = string(from: sender)
+            setValue(for: greenLabel)
         default:
-            blueLabel.text = string(from: sender)
+            setValue(for: blueLabel)
         }
     }
     
+    // MARK: - Private Methods
     private func setValue(for labels: UILabel...) {
         labels.forEach { label in
             switch label {
@@ -57,7 +62,7 @@ final class ViewController: UIViewController {
             }
         }
     }
-    
+        
     private func setColor() {
         colorView.backgroundColor = UIColor(
             red: CGFloat(redSlider.value),
