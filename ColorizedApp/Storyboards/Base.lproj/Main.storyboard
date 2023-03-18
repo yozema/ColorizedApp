@@ -77,36 +77,36 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="NT8-Dd-YrL">
-                                        <rect key="frame" x="53" y="8.5" width="40" height="101"/>
+                                        <rect key="frame" x="53" y="8.5" width="30" height="101"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cf-ar-Gkc">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqO-ox-r0i">
-                                                <rect key="frame" x="0.0" y="42" width="40" height="17"/>
+                                                <rect key="frame" x="0.0" y="42" width="30" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMB-ij-kWH">
-                                                <rect key="frame" x="0.0" y="84" width="40" height="17"/>
+                                                <rect key="frame" x="0.0" y="84" width="30" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="Buk-Wz-cBN"/>
+                                            <constraint firstAttribute="width" constant="30" id="Buk-Wz-cBN"/>
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="ox5-sx-mfO">
-                                        <rect key="frame" x="101" y="2" width="134" height="114"/>
+                                        <rect key="frame" x="91" y="2" width="144" height="114"/>
                                         <subviews>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="r8m-ti-11w">
-                                                <rect key="frame" x="-2" y="0.0" width="138" height="31"/>
+                                                <rect key="frame" x="-2" y="0.0" width="148" height="31"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemRedColor"/>
                                                 <color key="maximumTrackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -114,7 +114,7 @@
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="KRW-dP-aeI">
-                                                <rect key="frame" x="-2" y="42" width="138" height="31"/>
+                                                <rect key="frame" x="-2" y="42" width="148" height="31"/>
                                                 <color key="minimumTrackTintColor" systemColor="systemGreenColor"/>
                                                 <color key="maximumTrackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -122,7 +122,7 @@
                                                 </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-Vc-BkJ">
-                                                <rect key="frame" x="-2" y="84" width="138" height="31"/>
+                                                <rect key="frame" x="-2" y="84" width="148" height="31"/>
                                                 <color key="minimumTrackTintColor" name="AccentColor"/>
                                                 <color key="maximumTrackTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
@@ -163,6 +163,9 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="mSp-CQ-XBN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -181,11 +184,14 @@
                     <connections>
                         <outlet property="blueLabel" destination="TMB-ij-kWH" id="Vez-kC-ljN"/>
                         <outlet property="blueSlider" destination="UbU-Vc-BkJ" id="V1K-bQ-Pzl"/>
+                        <outlet property="blueTF" destination="b2h-1t-kEO" id="iiG-Cb-xR0"/>
                         <outlet property="colorView" destination="L8v-c1-uNN" id="GuN-tP-OKf"/>
                         <outlet property="greenLabel" destination="AqO-ox-r0i" id="Tzu-gr-kv8"/>
                         <outlet property="greenSlider" destination="KRW-dP-aeI" id="d1j-GN-veK"/>
+                        <outlet property="greenTF" destination="gcz-PR-Ibf" id="LNX-ap-5br"/>
                         <outlet property="redLabel" destination="6cf-ar-Gkc" id="8YZ-CL-eFo"/>
                         <outlet property="redSlider" destination="r8m-ti-11w" id="wbs-cD-Ioc"/>
+                        <outlet property="redTF" destination="Bs0-V1-ibQ" id="4CX-Kc-TFG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

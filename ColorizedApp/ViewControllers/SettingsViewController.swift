@@ -16,16 +16,27 @@ final class SettingsViewController: UIViewController {
     @IBOutlet var greenLabel: UILabel!
     @IBOutlet var blueLabel: UILabel!
     
-    
     @IBOutlet var redSlider: UISlider!
     @IBOutlet var greenSlider: UISlider!
     @IBOutlet var blueSlider: UISlider!
     
+    @IBOutlet var redTF: UITextField!
+    @IBOutlet var greenTF: UITextField!
+    @IBOutlet var blueTF: UITextField!
+    
+    var currentColor: UIColor!
+    unowned var delegate: SettingsViewControllerDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setColor()
+        colorView.backgroundColor = currentColor
+        
+        
+        
+        setValue(for: redSlider, greenSlider, blueSlider)
         setValue(for: redLabel, greenLabel, blueLabel)
+        setValue(for: redTF, greenTF, blueTF)
     }
     
     override func viewWillLayoutSubviews() {
@@ -42,11 +53,19 @@ final class SettingsViewController: UIViewController {
         switch sender {
         case redSlider:
             setValue(for: redLabel)
+            setValue(for: redTF)
         case greenSlider:
             setValue(for: greenLabel)
+            setValue(for: greenTF)
         default:
             setValue(for: blueLabel)
+            setValue(for: blueTF)
         }
+    }
+    
+    @IBAction func saveTapped() {
+        delegate.setColor(colorView.backgroundColor ?? .clear)
+        dismiss(animated: true)
     }
     
     // MARK: - Private Methods
@@ -59,6 +78,33 @@ final class SettingsViewController: UIViewController {
                 greenLabel.text = string(from: greenSlider)
             default:
                 blueLabel.text = string(from: blueSlider)
+            }
+        }
+    }
+    
+    private func setValue(for textFields: UITextField...) {
+        textFields.forEach { textField in
+            switch textField {
+            case redTF:
+                redTF.text = string(from: redSlider)
+            case greenTF:
+                greenTF.text = string(from: greenSlider)
+            default:
+                blueTF.text = string(from: blueSlider)
+            }
+        }
+    }
+    
+    private func setValue(for sliders: UISlider...) {
+        let ciColor = CIColor(color: currentColor)
+        sliders.forEach { slider in
+            switch slider {
+            case redSlider:
+                redSlider.value = Float(ciColor.red)
+            case greenSlider:
+                greenSlider.value = Float(ciColor.green)
+            default:
+                blueSlider.value = Float(ciColor.blue)
             }
         }
     }
